@@ -1,0 +1,289 @@
+body {
+	background:#f0f0f0;
+	margin:0;
+	padding:0;
+	overflow-x:hidden;
+	color:#fff;
+}
+p {
+	font:12px "Helvetica", Arial, sans-serif;
+	line-height:18px;
+	text-transform:uppercase;
+	padding:75px 27px 0 27px;
+	margin:0;
+}
+#loading,
+#loading_info,
+#loading_screen {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:5;
+	width:100%;
+	height:100%;
+}
+#loading_screen,
+#loading_info {
+	z-index:7;
+	text-align:center;
+}
+#loading_screen {
+	background:#000;
+	opacity:.7;
+	filter:alpha(opactiy=70);
+	z-index:6;
+}
+#loading_info p {
+	font-family:"Rockwell", "Courier New";
+	font-size:14px;
+	color:#fff;
+	width:100%;
+	text-align:center;
+	padding:350px 0 10px 0;
+}
+.container {
+	/*width:99.6%;
+	padding:.20%;*/
+	width:100%;
+}
+.city {
+	background:url('../img/black.png');
+	position:absolute;
+	left:0;
+	top:186px;
+	width:714px;
+	height:168px;
+	z-index:3;
+	box-shadow:0 0 6px #333;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+.nav {
+	position:absolute;
+	bottom:100px;
+	left:27px;
+}
+.nav a {
+	font-family:"Rockwell", "Courier New";
+	font-size:28px;
+	color:#fff;
+	text-decoration:none;
+	margin:0 30px 0 0;
+}
+.nav a:hover {
+	text-decoration:underline;
+}
+.nav .active {
+	font-size:42px;
+	color:#81caf9;
+	text-transform:uppercase;
+}
+.nav .active:hover {
+	text-decoration:none;
+}
+.img_row {
+	position:relative;
+	/*width:14.12%;
+	margin:.08%;*/
+	width:14.28%;
+	margin:0;
+	float:left;
+}
+.img {
+	position:relative;
+	float:left;
+	width:100%;
+	width:99%;
+	margin:0 .5% 1% .5%;
+}
+.img canvas {
+	display:none;
+}
+.img img {
+	width:100%;
+	float:left;
+	opacity:0;
+}
+.img a {
+	background:url('../img/bg.gif');
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	display:block;
+	z-index:2;
+	opacity:0;
+}
+.img canvas {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:1;
+	top:0;
+	left:0;
+}
+#gallery { opacity:0; filter:alpha(opacity=0); }
+#load { display:none; }
+/* big displays */
+@media (min-width: 1200px) {
+
+}
+/* */
+/* tablet */
+@media (max-width:768px) {
+	body {
+		font-size:1em;
+	}
+	/*.img_row {
+		width:32.8%;
+		margin:.2%
+	}*/
+	.city {
+		width:100%;
+		position:relative;
+		top:0;
+		left:0;
+		height:auto;
+	}
+	.nav {
+		position:relative;
+		bottom:0;
+		left:0;
+		display:block;
+		text-align:center;
+		margin:0;
+		padding:10px;
+	}
+	.nav a {
+		font-size:1em;
+		margin:0 2% 0 2%;
+	}
+	.nav .active {
+		font-size:1.2em;
+	}
+	p {
+		display:none;
+	}
+	#loading_info p {
+		display: block;
+		padding-top:300px;
+	}
+}
+/* */
+/* handheld */
+@media (max-width:480px) {
+	.img_row,
+	.img {
+		width:100%;
+		float:none;
+	}
+	.lightbox,
+	canvas {
+		display:none;
+	}
+	.img {
+		margin:0;
+	}
+}
+/* */
+
+/* SLIMBOX */
+
+#lbOverlay {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity:.7;
+	filter:alpha(opacity=70);
+	cursor: pointer;
+}
+
+#lbCenter, #lbBottomContainer {
+	position: absolute;
+	z-index: 9999;
+	background-color: #fff;
+	height:0;
+	overflow:hidden;
+}
+
+.lbLoading {
+	background: #fff url('/img/loader_white.gif') no-repeat center;
+}
+
+#lbImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: 10px solid #fff;
+	background-repeat: no-repeat;
+}
+
+#lbPrevLink2, #lbNextLink2 {
+	position: absolute;
+	top: 0;
+	width: 50%;
+	outline: none;
+	background:#000;
+	height:100%;
+	display:block;
+	cursor:pointer;
+}
+
+#lbPrevLink2 {
+	left: 0;
+	display:block !important;
+	background:#000;
+	opacity:.2;
+	width:50px;
+}
+
+#lbNextLink2 {
+	right: 0;
+	display:block !important;
+	background:#000;
+	opacity:.2;
+	width:50px;
+}
+
+#lblBottomContainer {
+	position:absolute;
+	bottom:10px;
+	left:0;
+}
+
+#lbBottom {
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666;
+	line-height: 1.4em;
+	text-align: left;
+	border: 10px solid #fff;
+	border-top-style: none;
+	height:0;
+}
+
+#lbCloseLink {
+	display: block;
+	width: 66px;
+	height: 22px;
+	background: transparent url(closelabel.gif) no-repeat center;
+	outline: none;
+	position:absolute;
+	background:#000;
+	right:0;
+	top:-20px;
+}
+
+#lbCaption, #lbNumber {
+	margin-right: 71px;
+}
+
+#lbCaption {
+	font-weight: bold;
+}
+/* */
